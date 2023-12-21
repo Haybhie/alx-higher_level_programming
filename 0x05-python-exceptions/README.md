@@ -1,1 +1,1 @@
-Handling Python exceptionsy
+Handling Python exceptions
