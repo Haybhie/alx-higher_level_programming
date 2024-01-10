@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""
-reading and writing
-"""
+'''
+    function to handle both open and read files
+'''
 
 
 def read_file(filename=""):
-    """
-    reading operation
-    """
-    with open(filename, "r", encoding="utf-8") as f:
+    '''
+    function to read a file
+    '''
+
+    with open(filename, encoding='utf-8') as f:
         print(f.read(), end="")
