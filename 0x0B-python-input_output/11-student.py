@@ -24,3 +24,10 @@ class Student():
         if type(attrs) is list and all([type(s) == str for s in attrs]):
             return {i: j for i, j in self.__dict__.items() if i in attrs}
         return(self.__dict__)
+
+    def reload_from_json(self, json):
+        """
+            reload json object
+        """
+        for i, j in json.items():
+            self.__dict__[i] = j
