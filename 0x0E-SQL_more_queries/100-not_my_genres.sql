@@ -1,4 +1,20 @@
--- script that converts hbtn_0c_0 database to UTF8 (utf8mb4, collate utf8mb4_unicode_ci) in MySQL server.
-ALTER DATABASE hbtn_0c_0 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE hbtn_0c_0;
-ALTER TABLE first_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- Lists all genres of the database hbtn_0d_tvshows
+-- not linked to the show Dexter.
+-- Records are sorted by ascending genre name.
+SELECT DISTINCT `name`
+  FROM `tv_genres` AS g
+       INNER JOIN `tv_show_genres` AS s
+       ON g.`id` = s.`genre_id`
+
+       INNER JOIN `tv_shows` AS t
+       ON s.`show_id` = t.`id`
+       WHERE g.`name` NOT IN
+             (SELECT `name`
+                FROM `tv_genres` AS g
+	             INNER JOIN `tv_show_genres` AS s
+		     ON g.`id` = s.`genre_id`
+
+		     INNER JOIN `tv_shows` AS t
+		     ON s.`show_id` = t.`id`
+		     WHERE t.`title` = "Dexter")
+ ORDER BY g.`name`;

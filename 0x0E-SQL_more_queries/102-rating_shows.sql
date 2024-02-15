@@ -1,2 +1,8 @@
--- script that displays the top 3 of cities temperature during July and August ordered by temperature (descending)
-SELECT city,AVG(value) as avg_temp FROM temperatures WHERE month=7 OR month=8 GROUP BY city ORDER BY avg_temp DESC LIMIT 3;
+-- Lists all shows from hbtn_0d_tvshows_rate by their rating.
+-- Records are ordered by descending rating.
+SELECT `title`, SUM(`rate`) AS `rating`
+  FROM `tv_shows` AS t
+       INNER JOIN `tv_show_ratings` AS r
+       ON t.`id` = r.`show_id`
+ GROUP BY `title`
+ ORDER BY `rating` DESC;

@@ -1,2 +1,11 @@
--- script that computes the score average of all records in the table second_table of the database hbtn_0c_0
-SELECT AVG(score) as average FROM second_table;
+-- Lists all genres of the show Dexter in the database hbtn_0d_tvshows.
+-- Records are ordered by ascending genre name.
+SELECT g.`name`
+  FROM `tv_genres` AS g
+       INNER JOIN `tv_show_genres` AS s
+       ON g.`id` = s.`genre_id`
+
+       INNER JOIN `tv_shows` AS t
+       ON t.`id` = s.`show_id`
+       WHERE t.`title` = "Dexter"
+ ORDER BY g.`name`;
