@@ -1,0 +1,1 @@
+-- Create states table in hbtn_Oe_101_usa with some data
