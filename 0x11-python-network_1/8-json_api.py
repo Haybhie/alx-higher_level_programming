@@ -1,14 +1,26 @@
 #!/usr/bin/python3
-"""Sends a request to the URL and displays the body of the response."""
+"""
+Sends POST request to http://0.0.0.0:5000/search_user
+with a letter as aparameter
+"""
+import sys
+import requests
 
 
-if __name__ == '__main__':
-    from sys import argv
-    from requests import get
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        letter = ""
+    else:
+        letter = sys.argv[1]
 
-    url = argv[1]
+    payload = {"q": letter}
 
-    response = get(url)
-    ERR_TXT = 'Error code: {}'
-    status = response.status_code
-    print(ERR_TXT.format(status) if (status >= 400) else response.text)
+    r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
+    try:
+        response = r.json()
+        if response == {}:
+            print("No result")
+        else:
+            print("[{}] {}".format(response.get("id"), response.get("name")))
+    except ValueError:
+        print("Not a valid JSON")

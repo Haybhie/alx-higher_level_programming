@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-"""
-Takes your GitHub credentials (username and password) and uses the GitHub API
-to display your id
-"""
+"""List 10 commits from the most recent to oldest from a github repository"""
+import requests
+import sys
 
-if __name__ == '__main__':
-    from requests import get
-    from sys import argv
 
-    username = argv[1]
-    password = argv[2]
+if __name__ == "__main__":
+    repository = sys.argv[1]
+    owner = sys.argv[2]
 
-    URL = "https://api.github.com/user"
-    response = get(URL, auth=(username, password))
-    json = response.json()
+    url = "https://api.github.com/repos/{}/{}/commits".format(
+        owner, repository)
+    response = requests.get(url)
 
-    print(json.get('id'))
+    commits = response.json()[:10]
+
+    for commit in commits:
+        sha = commit.get('sha')
+        author_name = commit.get('commit', {}).get(
+            'author', {}).get('name', {})
+        print("{}: {}".format(sha, author_name))
