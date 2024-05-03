@@ -1,6 +1,6 @@
 # 0x15 Javascript - Web JQuery :roller_coaster:
 
-> JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions. This project covers Jquery and DOM events
+> JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions. This project covers the events of Jquery and DOM.
 
 ## Learning Objectives :heavy_check_mark:
 
@@ -60,7 +60,7 @@ At the end of this project, I was able to solve these questions:
 
 ### Try It On Your Machine :computer:	
 ```bash
-$ git clone https://github.com/sammykingx/alx-higher_level_programming.git
+$ git clone https://github.com/haybhie/alx-higher_level_programming.git
 
 $ cd 0x15-javascript-web_jquery
 
